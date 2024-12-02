@@ -1,0 +1,352 @@
+/*Navbar*/
+/* Google Fonts Link */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.logo{
+  width: 70px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+nav .psg{
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-top: 25px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #5f0284; /* Add a background color */
+  padding: 5px 10px; /* Control inner spacing */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: inline-block; /* Ensure width and height apply */
+  opacity: 95%;
+}
+
+nav {
+  background: #8a00c8;
+  height: 80px;
+  width: 100%;
+}
+
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  opacity: 90%;
+}
+
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.nav-login{
+  background-color: #007bffd4;
+  color: white;
+  border-radius: 5px;
+}
+
+a:hover {
+  color: #e8d8eeb1;
+  transition: .5s;
+}
+
+.checkbtn {
+  font-size: 22px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 30px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+
+/*Welcome*/
+header {
+  background: linear-gradient(to bottom, #8a00c8, #a000c8, #b100cd, #be2ed6, #ca5cdd, #da8ee7, #e8bcf0);
+  color: white;
+  text-align: center;
+  padding: 5rem 0;
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  padding: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  padding: 20px;
+}
+
+header .btn {
+  background-color: #8a00c2; 
+  border: #8a00c2;
+  border-radius: 40px !important;
+  color: #ffffff;
+  font-weight: bold !important; 
+  padding: 0.75rem 1.5rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition: background-color 0.3s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header .btn:hover {
+  background-color: #e2e6ea; 
+}
+
+
+/* Features Section */
+section.py-5 {
+  padding: 5rem 0;
+  background-color: #e8bcf0; 
+}
+
+section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+section .col-md-4 {
+  flex: 1;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+section .col-md-4:hover {
+  transform: translateY(-5px); 
+}
+
+section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  font-size: 1rem;
+  color: #6c757d; 
+}
+
+/* Footer*/
+footer {
+  color: #6c757d;
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: #e8bcf0 !important;
+}
+
+#footer{
+  background-color: #e8bcf0 !important;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Connect Now Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background: rgba(106, 12, 130, 0.326) !important; /* Semi-transparent background */
+  backdrop-filter: blur(10px) !important; /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px) !important; /* For Safari support */
+  margin: 5% auto;
+  padding: 20px;
+  border-color:rgba(106, 12, 130, 0.326);
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content h2{
+  color: white;
+  font-size: 25px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.39);
+  border: none;
+  border-radius: 5px;
+  color:white;
+}
+
+.modal-content button:hover {
+  background-color: #20012f49;
+}
+
+.modal-content .login-btn {
+  background-color: #007bff9c;
+  color: white;
+}
+
+.modal-content .signup-btn {
+  background-color: #28a746eb;
+  color: white;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/*Responsiveness of screen*/
+/* Responsive design adjustments */
+@media (max-width: 500px) {
+  nav .psg{
+    display: none;
+  }
+
+  .nav-signup{
+    display: none;
+  }
+  
+  .nav-login{
+    display: none;
+  }
+
+}
+@media (max-width: 767px) {
+
+  .logo{
+    width: 50px;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+
+  .checkbtn {
+    display: block;
+  }
+
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(42, 1, 51, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    top: 75px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  #check:checked~ul {
+    left: 0;
+  }
+  
+  /*Welcome*/
+  header h1 {
+      font-size: 2.5rem;
+  }
+
+  header p {
+      font-size: 1rem;
+  }
+
+  header .btn {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.25rem;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .logo{
+    width: 45px;
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+
+  nav .psg{
+    font-size: 10px;
+    margin-top: 25px;
+  }
+
+  nav ul li a {
+    font-size: 15px;
+    padding: 6px;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+}
+}
