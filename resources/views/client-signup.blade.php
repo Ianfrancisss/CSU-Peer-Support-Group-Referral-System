@@ -199,12 +199,23 @@
           <!-- Input for Password -->
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" placeholder="Enter your password" required>
+             <div class="password-container">
+                <input id="password" type="password" placeholder="Enter your password" required>
+                  <i class="fas fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+              </div>
           </div>
           <!-- Input for Confirm Password -->
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="text" placeholder="Confirm your password" required>
+              <div class="password-container">
+                <input id="confirmPassword" type="password" placeholder="Confirm your password" required>
+                  <i class="fas fa-eye" id="toggleConfirmPassword" style="cursor: pointer;"></i>
+              </div>
+          </div>
+          <!--Enter age-->
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="text" placeholder="Enter your age" required>
           </div>
         </div>
         <div class="gender-details">

@@ -99,8 +99,56 @@
       }
       form .text h3 a:hover{
         text-decoration: underline;
-      }</style>
+      }
+     /*Sign up modal*/
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 150px;
+      }
+
+      .modal-content {
+        background: rgb(240, 237, 220) !important; /* Semi-transparent background */
+        margin: 5% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 430px;
+        text-align: center;
+        border-radius: 20px;
+      }
+
+      .modal-content h2{
+        color: rgb(34, 33, 33);
+        font-size: 25px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-bottom: 10px;
+      }
+
+      .modal-content button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.39);
+        border: none;
+        border-radius: 5px;
+        color:white;
+      }
+
+      .modal-content button:hover {
+        background-color: #20012f49;
+      }
+      
+    </style>
    </head>
+
 <body>
   <div class="wrapper">
     <h2>Log In</h2>
@@ -115,9 +163,44 @@
         <input type="Submit" value="Log In ">
       </div>
       <div class="text">
-        <h3>Don't have an account? <a href="#">Sign up now</a></h3>
+        <h3>Don't have an account? <a href="#" class="signup-btn">Sign up now</a></h3>
+
       </div>
     </form>
   </div>
+
+  <!-- Sign Up Options Modal -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+      <span class="close"></span>
+      <h2>Sign Up As</h2>
+      <button onclick="location.href='{{ route('client-signup') }}'">Client</button>
+      <button onclick="location.href='{{ route('counselor-signup') }}'">Counselor</button>
+  </div>
+</div>
+  <script>
+    const signupModal = document.getElementById("signupModal");
+    const closeModal = document.querySelector(".close");
+    const signupBtn = document.querySelector(".signup-btn");
+
+    // Show modal on signup button click
+      signupBtn.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      signupModal.style.display = "block"; // Show the modal
+    });
+
+    // Close modal on close button click
+      closeModal.addEventListener("click", () => {
+      signupModal.style.display = "none";
+    });
+
+    // Close modal when clicking outside of it
+      window.addEventListener("click", (e) => {
+        if (e.target === signupModal) {
+          signupModal.style.display = "none";
+        }
+   });
+
+</script>
 </body>
 </html>

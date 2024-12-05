@@ -137,7 +137,7 @@
 <!-- Sign Up Options Modal -->
 <div id="signupModal" class="modal">
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close"></span>
         <h2>Sign Up As</h2>
         <button onclick="location.href='{{ route('client-signup') }}'">Client</button>
         <button onclick="location.href='{{ route('counselor-signup') }}'">Counselor</button>
