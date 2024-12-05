@@ -2,6 +2,25 @@
 /* Google Fonts Link */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure navbar stays on top of other content */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+  background: #8a00c8 !important;
+  height: 90px;
+  width: 100%;
+}
+body {
+  padding-top: 80px; /* Adjust this value to match the height of the navbar */
+}
+
+section {
+  display: none;
+}
+
 .logo{
   width: 70px;
   margin-top: 10px;
@@ -22,13 +41,6 @@ nav .psg{
   display: inline-block; /* Ensure width and height apply */
   opacity: 95%;
 }
-
-nav {
-  background: #8a00c8;
-  height: 80px;
-  width: 100%;
-}
-
 
 nav ul {
   float: right;
@@ -96,7 +108,7 @@ header h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
   padding: 10px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
 }
 
@@ -127,6 +139,13 @@ header .btn:hover {
 
 
 /* Features Section */
+.card-img-top {
+  width: 90%; 
+  height: 200px; 
+  object-fit: cover; 
+}
+
+
 section.py-5 {
   padding: 5rem 0;
   background-color: #e8bcf0; 
@@ -164,7 +183,50 @@ section h3 {
 
 section p {
   font-size: 1rem;
-  color: #6c757d; 
+  color: rgb(28, 12, 12); 
+}
+
+
+/*About Us*/
+
+#about-us{
+  /*background: linear-gradient(to bottom, #e8bcf0, #da8ee7, #ca5cdd, #ca5cdd, #da8ee7, #e8bcf0);*/
+  background-color: #e8bcf0 !important;
+}
+
+.aboutus-container {
+  max-width: 800px; /* Set maximum width for content container */
+  margin: 0 auto; /* Center align content */
+}
+
+.aboutus-container img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.aboutus-container h2 {
+  text-align: center; /* Center align heading */
+}
+
+.aboutus-container p {
+  margin-top: 1.5rem; 
+  margin-bottom: 1.5rem; 
+  border: 1px solid; 
+  padding: 1rem; 
+  background-color: #a000c816;
+  border-radius: 20px;
+  font-size: 18px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: left;
 }
 
 /* Footer*/
@@ -259,6 +321,44 @@ footer p {
 /*Responsiveness of screen ohaha*/
 /* Responsive design adjustments */
 @media (max-width: 500px) {
+
+  ul {
+    position: fixed;
+    width: 33% !important; /* 1/5 of the screen width */
+    height: 100vh; /* Full height of the screen */
+    top: 90px;
+    right: -100%;
+    background: rgba(224, 216, 225, 0.456); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    transition: all 0.3s;
+    margin-right: 0 !important;
+    padding-left: 10px !important;
+  }
+  
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 0px;
+  }
+  
+  nav ul li a {
+    font-size: 13px !important;
+    color: rgb(255, 247, 230);
+    text-decoration: none;
+    text-align: left;
+    padding-right: 10px !important;
+    padding-left: 0;
+  }
+  
+  nav ul li a:hover {
+    color: #e8d8ee;
+  }
+  
+  #check:checked~ul {
+    right: 0;
+  }
+  
+  
   nav .psg{
     display: none;
   }
@@ -274,44 +374,69 @@ footer p {
 }
 @media (max-width: 767px) {
 
+  .nav-login{
+    background-color: hide !important;
+    color: white;
+    border-radius: 5px;
+  }
   .logo{
     width: 50px;
     margin-top: 30px;
     margin-left: 30px;
   }
 
-
+  .nav-login{
+    background-color: none;
+  }
   .checkbtn {
     display: block;
+    
   }
-
 
   ul {
     position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: rgba(42, 1, 51, 0.7); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    top: 75px;
-    left: -100%;
-    text-align: center;
+    width: 28%; /*the screen width */
+    height: 100vh; /* Full height of the screen */
+    top: 90px;
+    right: -100%;
+    background: rgba(100, 0, 123, 0.683); /* Semi-transparent background */
+    backdrop-filter: blur(20px); /* Apply blur effect */
     transition: all 0.3s;
+    margin-right: 0 !important;
+    padding-left: 10px !important;
   }
-
+  
   nav ul li {
     display: block;
     margin: 50px 0;
-    line-height: 30px;
+    line-height: 0px;
   }
-
+  
   nav ul li a {
-    font-size: 20px;
+    font-size: 14px;
+    color: rgb(255, 247, 230);
+    text-decoration: none;
+    padding-right: 10px !important;
+    padding-bottom: 2px !important;
+    padding-left: 0;
+    border: 1px solid rgb(255, 247, 230);
+    display: block; /* Ensures the border surrounds the link properly */
+    margin: 5px 10px; /* Adds spacing between each link */
+    line-height: 1.5; /* Adjusts the line spacing inside the border */
   }
-
+  
+  nav ul li a:hover {
+    color: #e8d8ee; 
+    border-color: #2f103b !important;
+    background-color: rgba(255, 247, 230, 0.2);
+  
+  }
+  
   #check:checked~ul {
-    left: 0;
+    right: 0;
   }
+  
+  
   
   /*Welcome*/
   header h1 {
@@ -330,6 +455,11 @@ footer p {
 
 
 @media (max-width: 1000px) {
+
+  .nav-login{
+    background-color: none !important;
+  }
+
   .logo{
     width: 45px;
     margin-top: 10px;
@@ -342,11 +472,22 @@ footer p {
   }
 
   nav ul li a {
-    font-size: 15px;
+    font-size: 14px;
     padding: 6px;
   }
 
   header h1 {
     font-size: 2.5rem;
 }
+
+/*Feature*/
+.card {
+  font-size: 10px;
+}
+
+.card img {
+  height: 100px;
+  object-fit: cover;
+}
+
 }
