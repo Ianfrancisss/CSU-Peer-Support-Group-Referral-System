@@ -49,3 +49,24 @@ window.addEventListener("click", (e) => {
         signupModal.style.display = "none";
     }
 });
+
+/*Sign Up Modal in relation to closing it*/
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal and close button
+    var signupModal = document.getElementById("signupModal");
+    var closeBtns = signupModal.querySelectorAll(".close"); // Find close buttons within the signup modal
+
+    // Close the signup modal when the close button is clicked
+    closeBtns.forEach(function(closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            signupModal.style.display = "none";
+        });
+    });
+
+    // Close the signup modal when the user clicks outside the modal content
+    window.addEventListener("click", function(event) {
+        if (event.target === signupModal) {
+            signupModal.style.display = "none";
+        }
+    });
+});

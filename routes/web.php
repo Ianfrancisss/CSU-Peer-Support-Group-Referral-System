@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    return view('home'); // Home page
+})->name('home');
+
+use App\Http\Controllers\AuthController;
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
+Route::get('/signup/client', [AuthController::class, 'showClientSignupForm'])->name('client-signup');
+
+Route::get('/signup/counselor', [AuthController::class, 'showCounselorSignupForm'])->name('counselor-signup');
+

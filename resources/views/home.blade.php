@@ -18,13 +18,13 @@
         <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
         </label>
-        <img class="logo" src="public/images/psg_logo-removebg-preview.png">
+        <img class="logo" src="{{ asset('images/psg_logo-removebg-preview.png') }}">
         <a class="psg">Peer Support Group</a>
         <ul>
             <li><a href="#" id="home-link">HOME</a></li>
             <li><a href="#" id="about-link">ABOUT US</a></li>
             <li><a href="#" id="faq-link">FAQ</a></li>
-            <li><a class="nav-login" id="nav-login" href="#">LOG IN</a></li>
+            <li><a class="nav-login" id="nav-login" onclick="location.href='{{ route('login') }}'">LOG IN</a></li>
         </ul>
     </nav>
 
@@ -43,7 +43,8 @@
             <div class="row text-center">
                 <div class="col-md-4">
                     <div class="card h-100">
-                        <img src="public/images/secure message.png" class="card-img-top" alt="Secure Messaging">
+                        <img src="{{ asset('images/secure message.png') }}" class="card-img-top" alt="Secure Messaging">
+
                         <div class="card-body">
                             <h5 class="card-title">Secure Messaging</h5>
                             <p class="card-text">Communicate securely with your counselor using our built-in messaging system.</p>
@@ -55,7 +56,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100">
-                        <img src="public/images/schedule.png" class="card-img-top" alt="Appointment Scheduling">
+                        <img src="{{ asset('images/schedule.png') }}" class="card-img-top" alt="Appointment Scheduling">
                         <div class="card-body">
                             <h5 class="card-title">Appointment Scheduling</h5>
                             <p class="card-text">Easily schedule and manage your counseling appointments.</p>
@@ -67,7 +68,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card h-100">
-                        <img src="public/images/resources.png" class="card-img-top" alt="Mental Health Resources">
+                        <img src="{{ asset('images/resources.png') }}" class="card-img-top" alt="Mental Health Resources">
                         <div class="card-body">
                             <h5 class="card-title">Mental Health Resources</h5>
                             <p class="card-text">Access articles, videos, and tools to support your well-being.</p>
@@ -128,18 +129,8 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Choose an Option</h2>
-        <button class="login-btn">Log In</button>
+        <button class="login-btn" onclick="location.href='{{ route('login') }}'">Log In</button>
         <button class="signup-btn">Sign Up</button>
-    </div>
-</div>
-
-<!-- Login Options Modal -->
-<div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Log In As</h2>
-        <button onclick="location.href='client_login.html'">Client</button>
-        <button onclick="location.href='counselor_login.html'">Counselor</button>
     </div>
 </div>
 
@@ -148,8 +139,8 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Sign Up As</h2>
-        <button onclick="location.href='client_signup.html'">Client</button>
-        <button onclick="location.href='counselor_signup.html'">Counselor</button>
+        <button onclick="location.href='{{ route('client-signup') }}'">Client</button>
+        <button onclick="location.href='{{ route('counselor-signup') }}'">Counselor</button>
     </div>
 </div>
 
