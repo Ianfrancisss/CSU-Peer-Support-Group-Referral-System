@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
@@ -15,6 +18,15 @@ class AuthController extends Controller
     }
 
     function loginPost(Request $request){
+        $request->validate([
+            "email"=>"required",
+            "password"=>"required",
+    ]);
+        $credentials = $request->only("email","password");
+        if(Auth::attempt($credentials)){
+            return redirect()->intended(route("Signup"));
+        }
+        return redirect(route("login"))->with("error", "login failed");
 
     }
 
@@ -25,14 +37,15 @@ class AuthController extends Controller
     
     function SignupPost(Request $request) {
         $request->validate([
-                "Fullname"=>"required",
-                "Email"=>"required",
-                "Password"=>"required",
+                "fullname"=>"required",
+                "email"=>"required",
+                "password"=>"required",
         ]);
         
+
         $user = new User();
-        $user->name = $request->Fullname;
-        $user->email = $request->Email;
+        $user->name = $request->fullname;
+        $user->email = $request->email;
         $user->password = Hash::make($request->password);
 
         if ($user->save()){

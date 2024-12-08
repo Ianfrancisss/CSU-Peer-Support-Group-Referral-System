@@ -24,11 +24,11 @@
                                 @csrf
                                 <div class="form-group mb-3">
                                    <input type="text" placeholder="Email"
-                                        id="Email" class="form-control" name="Email"
+                                        id="Email" class="form-control" name="email"
                                         required authofocus>
-                                    @if ($errors->has('Email'))
+                                    @if ($errors->has('email'))
                                         <span class="text-danger">
-                                            {{ $errors->first('Email') }}
+                                            {{ $errors->first('email') }}
                                         </span>
                                     @endif                                    
                                 </div>

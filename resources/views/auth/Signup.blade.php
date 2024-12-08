@@ -22,7 +22,7 @@
                         @if (session()->has("error"))
                              <div class="alert alert-success">
                                 {{session()->get("error")}}
-                            </div>
+                            </div> 
                         
                         @endif
                         <div class="card">
@@ -31,12 +31,12 @@
                                 <form method="POST" action="{{route("Signup.post")}}">
                                     @csrf
                                     <div class="form-group mb-3">
-                                    <input type="text" placeholder="Fullname"
-                                            id="Fullname" class="form-control" name="Fullname"
+                                    <input type="text" placeholder="fullname"
+                                            id="fullname" class="form-control" name="fullname"
                                             required authofocus>
-                                        @if ($errors->has('Fullname'))
+                                        @if ($errors->has('fullname'))
                                             <span class="text-danger">
-                                                {{ $errors->first('Fullname') }}
+                                                {{ $errors->first('fullname') }}
                                             </span>
                                         @endif                                    
                                     </div>
