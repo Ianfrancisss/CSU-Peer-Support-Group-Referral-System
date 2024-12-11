@@ -14,3 +14,7 @@ Route::post("/login", [AuthController::class, "loginPost"])->name("login.post");
 Route::get("/Signup", [AuthController::class,"Signup"])->name("Signup");
 
 Route::post("/Signup", [AuthController::class, "SignupPost"])->name("Signup.post");
+
+// Dashboard routes
+Route::get('/dashboard-client', [AuthController::class, 'showClientDashboard'])->name('dashboard-client');
+Route::get('/dashboard-counselor', [AuthController::class, 'showCounselorDashboard'])->name('dashboard-counselor');

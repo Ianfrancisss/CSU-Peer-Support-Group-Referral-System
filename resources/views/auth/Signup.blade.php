@@ -61,9 +61,17 @@
                                             
                                             @endif
                                     </div>
+                                    <div class="form-group mb-3">
+                                        <label for="role">Select Role</label>
+                                        <select name="role" id="role" class="form-control" required>
+                                            <option value="client">Client</option>
+                                            <option value="counselor">Counselor</option>
+                                        </select>
+                                    </div>
+                                    
                                     <div class="d-grid mx-auto">
                                         <button type="submit"
-                                            class="btn btn-dark btn-block">Signin</button>
+                                            class="btn btn-dark btn-block">Sign Up</button>
                                     </div>
                                 </form>
                             </div>

@@ -12,6 +12,18 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // Add a helper method to check if the user is a client
+    public function isClient()
+    {
+        return $this->role === 'client';
+    }
+
+    // Add a helper method to check if the user is a counselor
+    public function isCounselor()
+    {
+        return $this->role === 'counselor';
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -42,4 +54,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
 }
