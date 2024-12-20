@@ -31,7 +31,7 @@
                                 <form method="POST" action="{{route("Signup.post")}}">
                                     @csrf
                                     <div class="form-group mb-3">
-                                    <input type="text" placeholder="fullname"
+                                    <input type="text" placeholder="username"
                                             id="fullname" class="form-control" name="fullname"
                                             required authofocus>
                                         @if ($errors->has('fullname'))

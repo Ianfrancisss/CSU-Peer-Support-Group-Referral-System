@@ -540,6 +540,15 @@
         </style>
 </head>
 <body>
+      <!-- Success logout message -->
+@if (session('success'))
+<div class="alert alert-success alert-dismissible fade show fixed-top" role="alert" id="logoutSuccessAlert" style="z-index: 1050;">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
+
     <!-- Navbar -->
     <nav>
         <input type="checkbox" id="check">
@@ -761,5 +770,20 @@ document.addEventListener('DOMContentLoaded', function() {
         showSection("welcome");
         showSection("features");
     </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Check if there's a success message
+      var successAlert = document.getElementById('logoutSuccessAlert');
+      if (successAlert) {
+          // Hide the alert after 1.5 seconds
+          setTimeout(function() {
+              successAlert.classList.remove('show');
+              successAlert.classList.add('fade');
+          }, 1500);  // 1500 milliseconds = 1.5 seconds
+      }
+  });
+</script>
+
 </body>
 </html>

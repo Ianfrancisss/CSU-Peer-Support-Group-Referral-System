@@ -38,8 +38,20 @@
                         <a class="nav-link" href="#">Resources</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-danger text-white" href="#">Log Out</a>
+                        <button type="button" class="btn btn-danger text-white" onclick="confirmLogout()">Log Out</button>
                     </li>
+                    
+                    <script>
+                        function confirmLogout() {
+                            if (confirm('Are you sure you want to log out?')) {
+                                document.getElementById('logout-form').submit();
+                            }
+                        }
+                    </script>
+                    
+                    <form method="POST" action="{{ route('logout') }}" id="logout-form" style="display: none;">
+                        @csrf
+                    </form>       
                 </ul>
             </div>
         </div>
@@ -64,9 +76,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-envelope me-2"></i> Messages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-book me-2"></i> Resources</a>
                     </li>
                 </ul>
             </div>
