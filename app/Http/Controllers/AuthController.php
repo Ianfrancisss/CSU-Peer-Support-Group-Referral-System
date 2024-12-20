@@ -22,21 +22,32 @@ class AuthController extends Controller
             "email" => "required|email",
             "password" => "required|min:6",
         ]);
-
+    
         $credentials = $request->only("email", "password");
-
+    
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-
+    
+            // Check if user is a client
             if ($user->isClient()) {
                 return redirect()->route('dashboard-client')->with('success', 'Welcome back!');
-            } elseif ($user->isCounselor()) {
-                return redirect()->route('dashboard-counselor')->with('success', 'Welcome back!');
+            }
+    
+            // Check if user is a PSG volunteer
+            if ($user->isPsg()) {
+                // If PSG user is not approved, redirect to pending approval page
+                if (!$user->is_approved) {
+                    return redirect()->route('pending-approval')->with('info', 'Your PSG volunteer account is under review and pending approval.');
+                }
+                return redirect()->route('dashboard-psg')->with('success', 'Welcome back!');
             }
         }
-
+    
+        // Redirect back to login if authentication fails
         return redirect(route("login"))->with("error", "Login failed. Please check your credentials.");
     }
+    
+
 
     // Show the signup form
     public function signup()
@@ -46,32 +57,49 @@ class AuthController extends Controller
 
     // Handle signup post request
     public function signupPost(Request $request)
-    {
-        $request->validate([
-            "fullname" => "required|string|max:255",
-            "email" => "required|email|unique:users,email",
-            "password" => "required|min:6",
-            "role" => "required|in:client,counselor",
-        ]);
+{
+    $request->validate([
+        "fullname" => "required|string|max:255",
+        "email" => "required|email|unique:users,email",
+        "password" => "required|min:6|confirmed", // Confirm password validation
+        "role" => "required|in:client,psg", // Ensure role is client or psg
+    ]);
 
-        $user = new User();
-        $user->name = $request->fullname;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->role = $request->role;
+    $user = new User();
+    $user->name = $request->fullname;
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
+    $user->role = $request->role; // Save the role
 
-        if ($user->save()) {
-            auth()->login($user);
-
-            if ($user->isClient()) {
-                return redirect()->route('dashboard-client')->with('success', 'Registration successful!');
-            } elseif ($user->isCounselor()) {
-                return redirect()->route('dashboard-counselor')->with('success', 'Registration successful!');
-            }
-        }
-
-        return redirect(route("signup"))->with("error", "Failed to create account. Please try again.");
+    // Set approval status based on role
+    if ($user->role === 'psg') {
+        $user->is_approved = false; // PSG is pending approval
+    } else {
+        $user->is_approved = true; // Clients are automatically approved
     }
+
+    $user->save();
+
+    // Log in the user after registration
+    auth()->login($user);
+
+    // Redirect based on the role and approval status
+    if ($user->isClient()) {
+        return redirect()->route('dashboard-client')->with('success', 'Registration successful!');
+    } elseif ($user->isPsg() && !$user->is_approved) {
+        // If PSG and not approved, redirect to pending approval page
+        return redirect()->route('pending-approval')->with('info', 'Your PSG volunteer account is under review and pending approval.');
+    }
+
+    return redirect(route("signup"))->with("error", "Failed to create account. Please try again.");
+}
+
+
+public function showPendingApproval()
+{
+    return view('pending-approval');
+}
+
 
     // Show the client dashboard
     public function showClientDashboard()
@@ -80,11 +108,13 @@ class AuthController extends Controller
         return view('dashboard-client', compact('user'));
     }
 
-    // Show the counselor dashboard
-    public function showCounselorDashboard()
-    {
-        return view('dashboard-counselor');
-    }
+    // Show the psg dashboard (updated from counselor dashboard)
+    public function showPsgDashboard()
+{
+    $user = Auth::user(); // This retrieves the currently authenticated user
+    return view('dashboard-psg', compact('user'));
+}
+
 
     // Edit profile (update username and gender)
     public function editProfile()

@@ -18,11 +18,12 @@ class User extends Authenticatable
         return $this->role === 'client';
     }
 
-    // Add a helper method to check if the user is a counselor
-    public function isCounselor()
+    // Add a helper method to check if the user is a psg volunteer
+    public function isPsg()
     {
-        return $this->role === 'counselor';
+        return $this->role === 'psg';
     }
+    
 
     /**
      * The attributes that are mass assignable.
@@ -30,10 +31,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password', 'role', 'is_approved',
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.

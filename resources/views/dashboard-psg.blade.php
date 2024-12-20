@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Dashboard</title>
+    <title>Psg Volunteer Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <style>
         .navbar {
@@ -69,7 +69,7 @@
 <div class="col-md-3 bg-light sidebar p-4">
     <img src="assets/images/client_avatar.png" alt="Client Avatar" class="img-fluid rounded-circle mx-auto d-block mb-3" style="width: 150px;">
     <h5 class="text-center">{{ Auth::user()->name ?? 'Anonymous' }}</h5>
-    <p class="text-muted text-center">{{ Auth::user()->role ?? 'Client' }}</p>
+    <p class="text-muted text-center">{{ Auth::user()->role ?? 'psg' }} volunteer</p>
     <hr>
     <ul class="nav flex-column">
         <li class="nav-item">
@@ -133,7 +133,7 @@
 
             <!-- Main Dashboard Section -->
             <div class="col-md-9">
-                <h2 class="mt-4 mb-4">Welcome to Your Dashboard</h2>
+                <h2 class="mt-4 mb-4">Welcome Volunteer!</h2>
                 <div class="row">
                     <!-- Card 1 -->
                     <div class="col-md-4 mb-3">

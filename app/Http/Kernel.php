@@ -37,18 +37,24 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
+    
         'api' => [
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
-        'counselor' => [
-            // other middlewares...
-            \App\Http\Middleware\EnsureUserIsCounselor::class,
+    
+        'psg' => [
+            \App\Http\Middleware\EnsureUserIsPsg::class,  // Ensure User is PSG middleware
         ],
     ];
+
+    protected $routeMiddleware = [
+        'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        'check.approval' => \App\Http\Middleware\CheckApproval::class,
+    ];
+
+
+    
 
     /**
      * The application's middleware aliases.

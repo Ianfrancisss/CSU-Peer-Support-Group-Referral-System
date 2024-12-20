@@ -54,6 +54,10 @@
                                         <input type="password" placeholder="Password"
                                                 id="password" class="form-control"
                                                 name="password" required>
+                                        <br>
+                                        <input type="password" placeholder="Confirm Password"
+                                                id="password_confirmation" class="form-control"
+                                                name="password_confirmation" required>
                                             @if ($errors->has('password'))
                                                 <span class="text-danger" >
                                                     {{ $errors->first('password') }}
@@ -65,7 +69,7 @@
                                         <label for="role">Select Role</label>
                                         <select name="role" id="role" class="form-control" required>
                                             <option value="client">Client</option>
-                                            <option value="counselor">Counselor</option>
+                                            <option value="psg">PSG Volunteer</option>
                                         </select>
                                     </div>
                                     
