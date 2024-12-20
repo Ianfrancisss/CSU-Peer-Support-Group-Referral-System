@@ -66,6 +66,13 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4 text-center">Admin Dashboard</h1>
+
+        <!-- Logout Form -->
+        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+            @csrf
+            <button type="submit" class="btn btn-danger mb-3">Logout</button>
+        </form>
+
         <a href="{{ route('admin.create-user') }}" class="btn btn-primary mb-3">Create New User</a>
 
         <div class="table-responsive">
