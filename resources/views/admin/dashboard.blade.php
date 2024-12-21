@@ -64,15 +64,32 @@
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #722a65;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Admin Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="nav-link btn btn-danger text-white" style="border: none; background: none; padding: 10px 20px; font-size: 16px; cursor: pointer; transition: background-color 0.3s, transform 0.3s;" 
+                                onmouseover="this.style.backgroundColor='#d9534f'; this.style.transform='scale(1.05)';" 
+                                onmouseout="this.style.backgroundColor=''; this.style.transform='scale(1)';">
+                                Log Out
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container mt-5">
-        <h1 class="mb-4 text-center">Admin Dashboard</h1>
-
-        <!-- Logout Form -->
-        <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-            @csrf
-            <button type="submit" class="btn btn-danger mb-3">Logout</button>
-        </form>
-
         <a href="{{ route('admin.create-user') }}" class="btn btn-primary mb-3">Create New User</a>
 
         <div class="table-responsive">
@@ -101,9 +118,14 @@
                           </td>
                             <td>
                                 <a href="{{ route('admin.edit-user', $user->id) }}" class="btn btn-warning">Edit</a>
-                                <a href="{{ route('admin.delete-user', $user->id) }}" class="btn btn-danger">Delete</a>
+                                <form action="{{ route('admin.delete-user', $user->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                  
                                 @if ($user->role === 'psg' && !$user->is_approved)
-                                    <a href="{{ route('admin.approve-psg', $user->id) }}" class="btn btn-success">Approve</a>
+                                    <a href="{{ route('pending-approval', $user->id) }}" class="btn btn-success">Approve</a>
                                 @endif
                             </td>
                         </tr>

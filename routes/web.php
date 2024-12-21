@@ -34,6 +34,7 @@ Route::post('/logout', function () {
 // Dashboard routes (protected)
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard-client', [AuthController::class, 'showClientDashboard'])->name('dashboard-client');
+
     Route::get('/dashboard-psg', [AuthController::class, 'showPsgDashboard'])->name('dashboard-psg');
     
     // Edit profile route (GET)
@@ -57,21 +58,21 @@ Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.
 // Protected Admin Routes (Only accessible after login)
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'showUsers'])->name('admin.dashboard');
+
+    // User Management Routes
     Route::get('/admin/create-user', [AdminController::class, 'showCreateUserForm'])->name('admin.create-user');
-    Route::post('/admin/create-user', [AdminController::class, 'createUser']);
+    Route::post('/admin/create-user', [AdminController::class, 'createUser'])->name('admin.store-user');
     Route::get('/admin/edit-user/{id}', [AdminController::class, 'showEditUserForm'])->name('admin.edit-user');
-    Route::post('/admin/edit-user/{id}', [AdminController::class, 'updateUser']);
-    Route::get('/admin/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('admin.delete-user');
-    Route::get('/admin/approve-psg/{id}', [AdminController::class, 'approvePsgUser'])->name('admin.approve-psg');
+    Route::put('/admin/edit-user/{id}', [AdminController::class, 'updateUser'])->name('admin.update-user');
+    Route::delete('/admin/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('admin.delete-user');
+
 });
 
 //approval
 Route::middleware(['auth', 'check.approval'])->group(function () {
     // Routes that require approval
     Route::get('/psg-dashboard', [PsgController::class, 'dashboard']);
-    // Other PSG routes
 });
 
 // Route for Pending Approval
 Route::get('/pending-approval', [AuthController::class, 'showPendingApproval'])->name('pending-approval');
-
