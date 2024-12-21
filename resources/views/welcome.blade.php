@@ -560,7 +560,7 @@
         <ul>
             <li><a href="#" id="home-link">HOME</a></li>
             <li><a href="#" id="about-link">ABOUT US</a></li>
-            <li><a href="#" id="faq-link">FAQ</a></li>
+            <li><a href="#" id="faq-link">FAQ's</a></li>
             <li><a class="nav-login" id="nav-login" onclick="location.href='{{ route('login') }}'">LOG IN</a></li>
         </ul>
     </nav>
@@ -583,7 +583,7 @@
                         <img src="{{ asset('images/secure message.png') }}" class="card-img-top" alt="Secure Messaging">
                         <div class="card-body">
                             <h5 class="card-title">Secure Messaging</h5>
-                            <p class="card-text">Communicate securely with your counselor using our built-in messaging system.</p>
+                            <p class="card-text">Communicate securely with PSG volunteer using our built-in messaging system.</p>
                         </div>
                         <div class="card-footer">
                             <small class="text-body-secondary">Last updated 3 mins ago</small>
@@ -622,43 +622,58 @@
     <section id="about-us" class="py-5 bg-light">
         <div class="aboutus-container">
             <h2 class="text-center">About Us</h2>
-            <p class="lead text-center">We are a team dedicated to providing accessible and reliable mental health support. Our platform<br> connects students with counselors, promoting well-being and support within our community.</p>
-            <p class="lead text-right">Our mission is to ensure that every individual has the opportunity to receive personalized care, with ease<br> and confidentiality, fostering a supportive environment for mental health awareness.</p>
+            <p class="lead text-right">We are a team dedicated to providing accessible and reliable mental health support. Our platform connects students with PSG volunteers, who play a crucial role in facilitating the counseling process. These volunteers conduct intake interviews, schedule appointments, and refer clients to the appropriate counselors, ensuring a seamless and supportive experience.</p>
+            <p class="lead text-right">Our mission is to ensure that every individual has the opportunity to receive personalized care, with ease and confidentiality, fostering a supportive environment for mental health awareness.</p>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="py-5">
-        <div class="container">
-            <h2 class="text-center">Frequently Asked Questions</h2>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What is CareConnect?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            CareConnect is a digital platform designed to provide students with access to mental health support and resources. It connects clients with counselors to offer personalized guidance and care.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            How can I register on CareConnect?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            You can register as a client or counselor on CareConnect by clicking on the "Sign Up" button on the homepage and following the registration process.
-                        </div>
-                    </div>
+   <!-- FAQ Section -->
+<section id="faq" class="py-5">
+  <div class="container">
+      <h2 class="text-center">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      What is CareConnect?
+                  </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                      CareConnect is a digital platform, a referral system designed to provide students with access to mental health support and resources. It connects students/clients with PSG volunteers and ultimately be referred to licensed professional counselors at CSU.
+                  </div>
+              </div>
+          </div>
+         
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      What services do we offer?
+                  </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    We offer secure intake interviews and appointment scheduling, referring students/clients to licensed professional counselors, while also providing access to valuable mental health support resources. This ensures students/clients can receive timely, confidential, and comprehensive support for their mental health needs.
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How can I register on CareConnect?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    You can register as a client or counselor on CareConnect by clicking on the "Connect Now" button on the homepage and following the registration process.
                 </div>
             </div>
         </div>
-    </section>
+      </div>
+  </div>
+</section>
+
 
      <!-- Main Modal for Login/Signup -->
   <div id="myModal" class="modal">

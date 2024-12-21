@@ -39,7 +39,7 @@ class AuthController extends Controller
                 if (!$user->is_approved) {
                     return redirect()->route('pending-approval')->with('info', 'Your PSG volunteer account is under review and pending approval.');
                 }
-                return redirect()->route('dashboard-psg')->with('success', 'Welcome back!');
+                return redirect()->route('dashboard-psg')->with('success', 'Welcome to your dashboard!');
             }
         }
     

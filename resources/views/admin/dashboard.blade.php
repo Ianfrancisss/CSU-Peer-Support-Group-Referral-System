@@ -8,7 +8,7 @@
     <style>
         /* Custom Styles */
         body {
-            background-color: #f8f9fa;
+          background: linear-gradient(to bottom, #d5d5d5, #cdcdcd, #d8d8d8, #f4f4f4);
             font-family: 'Arial', sans-serif;
         }
 
@@ -79,7 +79,7 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Status</th>
@@ -92,7 +92,13 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ ucfirst($user->role) }}</td>
-                            <td>{{ $user->is_approved ? 'Approved' : 'Pending Approval' }}</td>
+                            <td>
+                              @if ($user->role === 'psg')
+                                  {{ $user->is_approved ? 'Approved' : 'Pending Approval' }}
+                              @else
+                                  N/A
+                              @endif
+                          </td>
                             <td>
                                 <a href="{{ route('admin.edit-user', $user->id) }}" class="btn btn-warning">Edit</a>
                                 <a href="{{ route('admin.delete-user', $user->id) }}" class="btn btn-danger">Delete</a>
