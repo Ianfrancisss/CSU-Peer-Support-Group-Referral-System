@@ -88,9 +88,16 @@ class AdminController extends Controller
 
     // Approve PSG user
     public function approvePsgUser($id)
-    {
-        $user = User::findOrFail($id);
-        $user->update(['is_approved' => true]);
-        return redirect()->route('admin.dashboard');
+{
+    $user = User::findOrFail($id);
+
+    if ($user->is_approved) {
+        return redirect()->route('admin.dashboard')->with('info', 'User is already approved.');
     }
+
+    $user->update(['is_approved' => true]);
+
+    return redirect()->route('admin.dashboard')->with('success', 'User approved successfully. The user can now log in.');
+}
+
 }

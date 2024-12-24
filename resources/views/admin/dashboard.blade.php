@@ -124,9 +124,20 @@
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
                                   
-                                @if ($user->role === 'psg' && !$user->is_approved)
-                                    <a href="{{ route('pending-approval', $user->id) }}" class="btn btn-success">Approve</a>
+                                @if ($user->role === 'psg')
+                                @if (!$user->is_approved)
+                                    <!-- Button to approve the user -->
+                                    <form action="{{ route('admin.approve-psg-user', $user->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button class="btn btn-success">Approve</button>
+                                    </form>
+                                @else
+                                    <!-- Display 'User Approved' if already approved -->
+                                    <span class="badge bg-success">User Approved</span>
                                 @endif
+                            @endif
+                            
                             </td>
                         </tr>
                     @endforeach

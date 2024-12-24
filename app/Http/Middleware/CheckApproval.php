@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckApproval
 {
-    public function handle(Request $request, Closure $next)
-    {
-        // Check if user is logged in and if they are approved
-        if (Auth::check() && !Auth::user()->is_approved) {
-            // If not approved, redirect to a "pending approval" page or show a message
-            return redirect()->route('pending-approval');
-        }
-
-        return $next($request);
+    public function handle($request, Closure $next)
+{
+    if (auth()->check() && !auth()->user()->is_approved) {
+        auth()->logout();
+        return redirect()->route('pending-approval')->with('error', 'Your account is awaiting approval.');
     }
+
+    return $next($request);
+}
+
 }

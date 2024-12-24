@@ -76,3 +76,6 @@ Route::middleware(['auth', 'check.approval'])->group(function () {
 
 // Route for Pending Approval
 Route::get('/pending-approval', [AuthController::class, 'showPendingApproval'])->name('pending-approval');
+// Admin approves PSG user
+Route::patch('/admin/approve-psg-user/{id}', [AdminController::class, 'approvePsgUser'])->name('admin.approve-psg-user');
+
